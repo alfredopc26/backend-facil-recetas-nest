@@ -8,6 +8,8 @@ export class ScopesGuard implements CanActivate {
 
   canActivate(context: ExecutionContext): boolean {
     const scopes = this.reflector.get<string[]>('scopes', context.getHandler());
+    console.log('scopes', scopes);
+    
     if (!scopes) {
       return true;
     }
